@@ -1,4 +1,4 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, Theme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -26,8 +26,20 @@ export default function RootLayout() {
     return null;
   }
 
+  const AnpriotTheme: Theme = {
+    dark: false,
+    colors: {
+      primary: 'rgb(232, 163, 15)',
+      background: 'rgb(1, 1, 1)',
+      card: 'rgb(18, 18, 18)',
+      text: 'rgb(232, 163, 15)',
+      border: 'rgb(39, 39, 41)',
+      notification: 'rgb(255, 69, 58)',
+    },
+  };
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : AnpriotTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
